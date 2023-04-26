@@ -18,6 +18,9 @@ public class App {
         itemMachin.addProduct(new BottleOfWater("Cola", 88.0, 500 ));
         itemMachin.addProduct(new BottleOfWater("Water", 188.0, 1500 ));
         itemMachin.addProduct(new HotDrink("coffee", 50.0, 90));
+        itemMachin.addProduct(new HotDrink("coffee", 50.0, 80));
+        itemMachin.addProduct(new HotDrink("tea", 50.0, 90));
+        itemMachin.addProduct(new HotDrink("Капучино", 80.0, 80));
 
 
 
