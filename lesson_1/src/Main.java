@@ -7,5 +7,6 @@ public class Main {
             Product item1 = new Product("Cola",88.0);
             item1.setPrice(98.0);
             VendingMachine ver1 = new VendingMachine(300);
+            System.out.println(item1.toString());
     }
 }
