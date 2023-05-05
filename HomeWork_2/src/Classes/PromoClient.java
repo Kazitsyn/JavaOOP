@@ -1,34 +1,49 @@
 package Classes;
 
 /**
- * Вип клиент
+ * Класс акционного клиента
  */
-public class SpecialClient extends Actor{
-    private int idVIP;
+public class PromoClient extends Actor{
+    /**
+     * счетчик ID купона
+     */
+    public static int promoId = 0;
+//    private int promoNum;
+    /**
+     * промокод
+     */
+    private final String promoName = "SALE";
 
     /**
-     * Конструктор
-     * @param name имя
-     * @param idVIP вип ID
+     * Конструтор
+     * @param name имя клиента
+     * @param promoName промокод
      */
-    public SpecialClient(String name, int idVIP){
+    public PromoClient(String name, String promoName) {
         super(name);
-        if (idVIP > 9999){
-            super.id = idVIP;
+        if(this.promoName == promoName){
+            super.id = ++promoId;
         }else {
-            super.id = -1;
+            super.id = 0;
         }
-
     }
 
     /**
-     * Получить имя
+     * получить значения счетчика ID купона
      * @return
      */
-    @Override
-    public String getName() {
-        return super.name;
+    public int getPromoId() {
+        return promoId;
     }
+
+    /**
+     * получить промокод
+     * @return
+     */
+    public String getPromoName() {
+        return promoName;
+    }
+
     /**
      * получить ID для аналлиза принадлежности к акции
      * @return
@@ -36,6 +51,25 @@ public class SpecialClient extends Actor{
     public int getId() {
         return super.id;
     }
+
+    /**
+     * Конструктор
+     *
+     * @param name имя
+     */
+    public PromoClient(String name) {
+        super(name);
+    }
+
+    /**
+     * получить имя
+     * @return
+     */
+    @Override
+    public String getName() {
+        return super.name;
+    }
+
     /**
      * получить маркер заказа
      * @return
@@ -44,6 +78,7 @@ public class SpecialClient extends Actor{
     public boolean isMakeOrder() {
         return super.isMakeOrder;
     }
+
     /**
      * получить маркер получения заказа
      * @return
@@ -52,22 +87,25 @@ public class SpecialClient extends Actor{
     public boolean isTakeOrder() {
         return super.isTakeOrder;
     }
+
     /**
      * установить маркер заказа
      * @param makeOrder
      */
     @Override
     public void setMakeOrder(boolean makeOrder) {
-       super.isMakeOrder = makeOrder;
+        super.isMakeOrder = makeOrder;
     }
+
     /**
      * установить маркер получения заказа
      * @param pickUpOrder
      */
     @Override
     public void setTakeOrder(boolean pickUpOrder) {
-       super.isTakeOrder = pickUpOrder;   
+        super.isTakeOrder = pickUpOrder;
     }
+
     /**
      * получить доступ к параметрам клиента
      * @return
@@ -77,5 +115,5 @@ public class SpecialClient extends Actor{
         return this;
     }
 
-    
+
 }
